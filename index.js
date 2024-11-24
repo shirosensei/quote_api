@@ -18,11 +18,6 @@ app.use(morgan('dev'));
 
 app.use(cors()); // Enables CORS for all routes
 
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
-
 // Example quotes data
 let quotes = [];
 
@@ -30,7 +25,7 @@ const loadQuotes = async () => {
   if (quotes.length === 0) {
     try {
       console.log("...Attempting to load quotes");
-      const data = await fs.readFile("quotes.json", "utf8");
+      const data = await fs.readFile("api/quotes.json", "utf8");
       quotes = JSON.parse(data);
       console.log("Quotes data loaded successfully.");
     } catch (error) {
