@@ -36,7 +36,7 @@ const loadQuotes = async () => {
 };
 
 // Route to get quotes with optional tag filtering
-app.get("/api/quotes", async (req, res) => {
+app.get("/", async (req, res) => {
   const tag = req.query.tag?.toLowerCase();
 
   // Check if the tag is a string
